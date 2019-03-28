@@ -1,4 +1,4 @@
-import java.util.List;
+ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -9,8 +9,11 @@ public class Game {
     private Player player4;
     
     private List<Pai> paiChi;
+	private int index;
+	private int turn;
     
     public Game() {
+		turn = 0;
         paiChi = new ArrayList<Pai>();
         for (int i = 0; i < 4; i ++) {
             for (int j = 0; j < 4; j ++) {
@@ -37,12 +40,14 @@ public class Game {
     }
     
     public void faPai() {
-        for (int i = 0; i < 13; i ++) {
-            player1.moPai(this.getPaiChi().get(i + 0));
-            player2.moPai(this.getPaiChi().get(i + 1));
-            player3.moPai(this.getPaiChi().get(i + 2));
-            player4.moPai(this.getPaiChi().get(i + 3));
+		int i = 0;
+        for (; i < 13; i ++) {
+            player1.moPai(this.getPaiChi().get(4 * i + 0));
+            player2.moPai(this.getPaiChi().get(4 * i + 1));
+            player3.moPai(this.getPaiChi().get(4 * i + 2));
+            player4.moPai(this.getPaiChi().get(4 * i + 3));
         }
+		index = i;
     }
     
     public void setPlayers(Player player1, Player player2, Player player3, Player player4) {
@@ -64,9 +69,16 @@ public class Game {
                 return player4;
             default:
                 return null;
-        }
-                
+        }  
     }
+	
+	public Pai moPai() {
+		return this.getPaiChi().get(index++);
+	}
+	
+	public Pai daPai(int i) {
+		return this.getPlayer(turn++).daPai(i);
+	}
     
     public List<Pai> getPaiChi() {
         return this.paiChi;

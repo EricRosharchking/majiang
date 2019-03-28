@@ -21,8 +21,9 @@ public class Player {
         paiList.add(pai);
     }
     
-    public Pai daPai(Pai pai) {
-        paiList.remove(pai);
+    public Pai daPai(int i) {
+		Pai pai = paiList.get(i);
+        paiList.remove(i);
         return pai;
     }
     
