@@ -8,6 +8,8 @@ public class Majiang {
         System.out.println("This is a Majiang game");
         Session session = new Session();
         session.getGame().setPlayers(new Player(), new Player(), new Player(), new Player());
+        session.getGame().setPosition();
+        session.getGame().faPai();
         player1 = session.getGame().getPlayer(1);
         player2 = session.getGame().getPlayer(2);
         player3 = session.getGame().getPlayer(3);
@@ -15,21 +17,16 @@ public class Majiang {
         // for (Pai pai: game.getPaiChi()) {
             // System.out.println(pai);
         // }
-        for (int i = 0; i < 13; i ++) {
-                player1.moPai(session.getGame().getPaiChi().get(i + 0));
-                player2.moPai(session.getGame().getPaiChi().get(i + 1));
-                player3.moPai(session.getGame().getPaiChi().get(i + 2));
-                player4.moPai(session.getGame().getPaiChi().get(i + 3));
-        }
+
         System.out.println(player1.getPaiList().size());
         System.out.println(player1.getPaiList());
+        System.out.println(player2.getPaiList());
+        System.out.println(player3.getPaiList());
+        System.out.println(player4.getPaiList());
     }
     
     public Majiang() {
         
     }
     
-    public boolean checkWin() {
-        return false;
-    }
 }

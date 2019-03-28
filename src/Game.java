@@ -29,6 +29,22 @@ public class Game {
             Collections.shuffle(paiChi);
     }
     
+    public void setPosition() {
+        player1.setPosition(1);
+        player2.setPosition(2);
+        player3.setPosition(3);
+        player4.setPosition(4);
+    }
+    
+    public void faPai() {
+        for (int i = 0; i < 13; i ++) {
+            player1.moPai(this.getPaiChi().get(i + 0));
+            player2.moPai(this.getPaiChi().get(i + 1));
+            player3.moPai(this.getPaiChi().get(i + 2));
+            player4.moPai(this.getPaiChi().get(i + 3));
+        }
+    }
+    
     public void setPlayers(Player player1, Player player2, Player player3, Player player4) {
         this.player1 = player1;
         this.player2 = player2;
@@ -54,5 +70,13 @@ public class Game {
     
     public List<Pai> getPaiChi() {
         return this.paiChi;
+    }
+    
+    public boolean checkWin(Player player) {
+        List<Pai> paiList = player.getPaiList();
+        return false;
+    }
+    public boolean checkWin(Player player, Pai pai) {
+        return false;
     }
 }
