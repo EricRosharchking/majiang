@@ -8,12 +8,12 @@ public class Game {
     private Player player3;
     private Player player4;
     
-    private List<Pai> paiChi;
+    private ArrayList<Pai> paiChi;
 	private int index;
 	private int turn;
     
     public Game() {
-		turn = 1;
+		turn = 0;
         paiChi = new ArrayList<Pai>();
         for (int i = 0; i < 4; i ++) {
             for (int j = 0; j < 4; j ++) {
@@ -47,7 +47,7 @@ public class Game {
             player3.moPai(this.getPaiChi().get(4 * i + 2));
             player4.moPai(this.getPaiChi().get(4 * i + 3));
         }
-		index = i;
+		index = 4 * i;
     }
     
     public void setPlayers(Player player1, Player player2, Player player3, Player player4) {
@@ -59,28 +59,32 @@ public class Game {
     
     public Player getPlayer(int i) {
         switch (i){
-            case 1:
+            case 0:
                 return player1;
-            case 2:
+            case 1:
                 return player2;
-            case 3:
+            case 2:
                 return player3;
-            case 4:
+            case 3:
                 return player4;
             default:
                 return null;
-        }  
+        }
     }
+	
+	public void playerMoPai() {
+		this.getPlayer(turn%4).moPai(this.moPai());
+	}
 	
 	public Pai moPai() {
 		return this.getPaiChi().get(index++);
 	}
 	
 	public Pai daPai(int i) {
-		return this.getPlayer(turn++).daPai(i);
+		return this.getPlayer(turn++%4).daPai(i);
 	}
     
-    public List<Pai> getPaiChi() {
+    public ArrayList<Pai> getPaiChi() {
         return this.paiChi;
     }
     
@@ -99,4 +103,8 @@ public class Game {
     public void setTurn(int turn) {
         this.turn = turn;
     }
+	
+	public int getIndex() {
+		return index;
+	}
 }
