@@ -13,7 +13,7 @@ public class Game {
 	private int turn;
     
     public Game() {
-		turn = 0;
+		turn = 1;
         paiChi = new ArrayList<Pai>();
         for (int i = 0; i < 4; i ++) {
             for (int j = 0; j < 4; j ++) {
@@ -90,5 +90,13 @@ public class Game {
     }
     public boolean checkWin(Player player, Pai pai) {
         return false;
+    }
+    
+    public int getTurn() {
+        return turn;
+    }
+    
+    public void setTurn(int turn) {
+        this.turn = turn;
     }
 }

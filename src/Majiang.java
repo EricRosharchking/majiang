@@ -20,9 +20,25 @@ public class Majiang {
 
         System.out.println(player1.getPaiList().size());
         System.out.println(player1.getPaiList());
-        System.out.println(player2.getPaiList());
-        System.out.println(player3.getPaiList());
-        System.out.println(player4.getPaiList());
+        // System.out.println(player2.getPaiList());
+        // System.out.println(player3.getPaiList());
+        // System.out.println(player4.getPaiList());
+
+        System.out.println(session.getGame().getTurn());
+        
+        System.out.println(session.getGame().daPai(3));
+        // session.getGame().daPai(3);
+        // session.getGame().daPai(3);
+        // session.getGame().daPai(3);
+        
+        System.out.println(session.getGame().getPlayer(1).getPaiList());
+        // System.out.println(session.getGame().getPlayer(2).getPaiList());
+        // System.out.println(session.getGame().getPlayer(3).getPaiList());
+        // System.out.println(session.getGame().getPlayer(4).getPaiList());
+        
+        // for (int i=0; i < 10; i )) {
+            // session.getGame().daPai(3);
+        // }
     }
     
     public Majiang() {
