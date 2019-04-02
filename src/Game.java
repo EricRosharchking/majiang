@@ -13,6 +13,7 @@ public class Game {
 	private int turn;
     
     public Game() {
+		System.out.println("This is a new Game");
 		turn = 0;
         paiChi = new ArrayList<Pai>();
         for (int i = 0; i < 4; i ++) {
@@ -88,13 +89,79 @@ public class Game {
         return this.paiChi;
     }
     
-    public boolean checkWin(Player player) {
-        List<Pai> paiList = player.getPaiList();
-        return false;
+    public boolean checkWin(Player player) throws Exception{
+		List<Pai> jiang = this.checkJiang(player.getPaiList());
+		if (jiang == null) {
+			return false;
+		}
+        return true;
     }
     public boolean checkWin(Player player, Pai pai) {
         return false;
     }
+	
+	public List<Pai> checkJiang(ArrayList<Pai> paiList) throws Exception{
+		List<Pai> resultList = null;
+		List<Pai> wanList = new ArrayList<>();
+        List<Pai> bingList = new ArrayList<>();
+        List<Pai> tiaoList = new ArrayList<>();
+        List<Pai> fengList = new ArrayList<>();
+		for (Pai pai: paiList) {
+			switch (pai.getHuaSe()) {
+				case 'a':
+					wanList.add(pai);
+					break;
+				case 'b':
+					bingList.add(pai);
+					break;
+				case 'c':
+					tiaoList.add(pai);
+					break;
+				case 'd':
+					fengList.add(pai);
+					break;
+				default:
+					throw new Exception("Error in Pai.huaSe");
+			}
+		}
+		/*
+		*
+		*/
+		System.out.println(wanList);
+		System.out.println(bingList);
+		System.out.println(tiaoList);
+		System.out.println(fengList);
+		/*
+		*
+		*/
+		List<Integer> sizeList = new ArrayList<>();
+		sizeList.add(wanList.size()%3);
+		sizeList.add(bingList.size()%3);
+		sizeList.add(tiaoList.size()%3);
+		sizeList.add(fengList.size()%3);
+		if (sizeList.contains(1)) {
+			return resultList;
+		} else if (!sizeList.contains(0)) {
+			return resultList;
+		}
+		switch (sizeList.indexOf(2)) {
+			case 0:
+				resultList = wanList;
+				break;
+			case 1:
+				resultList = bingList;
+				break;
+			case 2:
+				resultList = tiaoList;
+				break;
+			case 3:
+				resultList = fengList;
+				break;
+			default:
+				break;
+		}
+		return resultList;
+	}
     
     public int getTurn() {
         return turn;

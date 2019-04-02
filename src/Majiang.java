@@ -9,6 +9,7 @@ public class Majiang {
     private static Player player4;
     
     public static void main(String[] args) {
+		try {
         System.out.println("This is a Majiang game");
         Session session = new Session();
         session.getGame().setPlayers(new Player(), new Player(), new Player(), new Player());
@@ -19,20 +20,23 @@ public class Majiang {
         player3 = session.getGame().getPlayer(2);
         player4 = session.getGame().getPlayer(3);
 		
-        System.out.println(session.getGame().getPaiChi());
+        // System.out.println(session.getGame().getPaiChi());
 		
-		System.out.println(session.getGame().getIndex());
+		// System.out.println(session.getGame().getIndex());
  // while (session.getGame().getIndex() < 136) {
         // System.out.println(player1.getPaiList().size());
 		
 		session.getGame().playerMoPai();
-        System.out.println("摸完:" + player1.getPaiList());
-        System.out.println("打" + session.getGame().daPai(0));
-        System.out.println("打完:" + player1.getPaiList());
-		
-		ArrayList<Pai> lst = player1.getPaiList();
 		Collections.sort(player1.getPaiList());
-		System.out.println("排序:" + player1.getPaiList());
+		boolean status = session.getGame().checkWin(player1);
+		System.out.println(status);
+        // System.out.println("摸完:" + player1.getPaiList());
+        // System.out.println("打" + session.getGame().daPai(0));
+        // System.out.println("打完:" + player1.getPaiList());
+		
+		// ArrayList<Pai> lst = player1.getPaiList();
+		// Collections.sort(player1.getPaiList());
+		// System.out.println("排序:" + player1.getPaiList());
 		
 		// session.getGame().playerMoPai();
         // System.out.println("摸完:" + player2.getPaiList());
@@ -65,6 +69,9 @@ public class Majiang {
         // for (int i=0; i < 10; i )) {
             // session.getGame().daPai(3);
         // }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
     
     public Majiang() {
