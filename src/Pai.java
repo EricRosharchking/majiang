@@ -1,7 +1,7 @@
 public class Pai implements Comparable<Pai> {
-    private char huaSe;
-    private int num;
-    private int seq;
+    private char huaSe;	//4 kinds of huaSe
+    private int num;	//1 to 9
+    private int seq;	//0 to 3
     
     public Pai(char huaSe, int seq, int num) {
         this.huaSe = huaSe;

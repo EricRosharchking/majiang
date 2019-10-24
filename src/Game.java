@@ -131,8 +131,13 @@ public class Game {
 		System.out.println(bingList);
 		System.out.println(tiaoList);
 		System.out.println(fengList);
+		System.out.println("*********************");
+		MajiangUtil.print(wanList);
+		MajiangUtil.print(bingList);
+		MajiangUtil.print(tiaoList);
+		MajiangUtil.print(fengList);
 		/*
-		*
+		* 
 		*/
 		List<Integer> sizeList = new ArrayList<>();
 		sizeList.add(wanList.size()%3);
