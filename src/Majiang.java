@@ -28,26 +28,30 @@ public class Majiang {
             // System.out.println(game.getIndex());
             // while (game.getIndex() < 136) {
             // System.out.println(player1.getPaiList().size());
-            boolean status = false;
-            while (!status) {
-                game.playerMoPai();
-                Collections.sort(player1.getPaiList());
-                MajiangUtil.print(player1.getPaiList());
-                status = game.checkWin(player1);
-                System.out.println("status:[" + status + "]*****************************");
-                System.out.print("Please choose which Pai to play:");
-                String choice = sc.next();
-                if (!choice.matches("[0-9]{1,2}")) {
-                    break;
-                }
-                game.daPai(Integer.valueOf(choice)-1);
-                game.playerMoPai();
-                game.daPai(0);
-                game.playerMoPai();
-                game.daPai(0);
-                game.playerMoPai();
-                game.daPai(0);
-            }
+            // boolean status = false;
+            // while (!status) {
+            //     game.playerMoPai();
+            //     Collections.sort(player1.getPaiList());
+            //     MajiangUtil.print(player1.getPaiList());
+            //     status = game.checkWin(player1);
+            //     System.out.println("status:[" + status + "]*****************************");
+            //     System.out.print("Please choose which Pai to play:");
+            //     String choice = sc.next();
+            //     if (!choice.matches("[0-9]{1,2}")) {
+            //         break;
+            //     }
+            //     game.daPai(Integer.valueOf(choice)-1);
+            //     game.playerMoPai();
+            //     game.daPai(0);
+            //     game.playerMoPai();
+            //     game.daPai(0);
+            //     game.playerMoPai();
+            //     game.daPai(0);
+            // }
+            player1.setPaiList(MajiangUtil.getTestPaiList(1));
+            Collections.sort(player1.getPaiList());
+            MajiangUtil.print(player1.getPaiList());
+            System.out.println(game.checkWin(player1));
             // System.out.print("Please choose which Pai to play:");
             // int choice = sc.nextInt();
             // System.out.println(choice);

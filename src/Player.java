@@ -2,18 +2,18 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Player {
-    private ArrayList<Pai> paiList;
+    private List<Pai> paiList;
     private int position;
 
     public Player() {
         paiList = new ArrayList<Pai>();
     }
 
-    public void setPaiList(ArrayList<Pai> paiList) {
+    public void setPaiList(List<Pai> paiList) {
         this.paiList = paiList;
     }
 
-    public ArrayList<Pai> getPaiList() {
+    public List<Pai> getPaiList() {
         return this.paiList;
     }
 
